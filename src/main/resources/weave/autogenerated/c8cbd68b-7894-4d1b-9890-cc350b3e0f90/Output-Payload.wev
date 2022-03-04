@@ -1,0 +1,28 @@
+%dw 2.0
+
+type auto_c8cbd68b_7894_4d1b_9890_cc350b3e0f90_Output_Payload = {|
+  name: Null, 
+  flightID: Number, 
+  flightNumber: String, 
+  startDate: Null, 
+  startTime: Null, 
+  endDate: Null, 
+  endTime: Null, 
+  origin: Null, 
+  destination: Null, 
+  noOfPassengers: Null, 
+  nameOfPassenger: Null, 
+  bookingType: Null, 
+  insuranceRequired: Null, 
+  username: Null, 
+  userid: String, 
+  isGuest: Null, 
+  contactDetails: Null, 
+  price: { _?: Any }, 
+  totalSeats: Number, 
+  bookingID: Null, 
+  PNR: Null, 
+  couponName: Null, 
+  couponState: Boolean | Boolean
+|}
+

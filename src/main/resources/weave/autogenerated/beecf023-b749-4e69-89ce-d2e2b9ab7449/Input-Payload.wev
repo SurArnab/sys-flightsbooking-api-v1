@@ -1,0 +1,28 @@
+%dw 2.0
+
+type auto_beecf023_b749_4e69_89ce_d2e2b9ab7449_Input_Payload = {|
+  name: Null, 
+  flightID: Number, 
+  flightNumber: String, 
+  startDate: Null, 
+  startTime: Null, 
+  endDate: Null, 
+  endTime: Null, 
+  origin: Null, 
+  destination: Null, 
+  noOfPassengers: Null, 
+  nameOfPassenger: Null, 
+  bookingType: Null, 
+  insuranceRequired: Null, 
+  username: Null, 
+  userid: String, 
+  isGuest: Null, 
+  contactDetails: Null, 
+  price: { _?: Any }, 
+  totalSeats: Number, 
+  bookingID: Null, 
+  PNR: Null, 
+  couponName: Null, 
+  couponState: Boolean
+|}
+
