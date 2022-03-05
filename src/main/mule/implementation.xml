@@ -125,7 +125,7 @@ output application/json
 	layOver: vars.inputPayload.layOver,
 	noOfStops: vars.inputPayload.noOfStops,
 	availableSeats: vars.inputPayload.availableSeats,
-	price: vars.inputPayload.price as Dictionary,
+	price: (((write(vars.inputPayload.price,'application/json') replace "\n" with "") replace "\r" with "") replace "\t" with ""),
 	currency: vars.inputPayload.currency,
 	baggage: vars.inputPayload.baggage as Dictionary,
 	availableCoupons: (((write(vars.inputPayload.availableCoupons,'application/json') replace "\n" with "") replace "\r" with "") replace "\t" with ""),
@@ -216,6 +216,18 @@ output application/json
 		<flow-ref doc:name="call getFlightDetails" doc:id="92f32dce-4549-4f37-9de3-cc19895ffd26" name="getFlightDetails"/>
 		<choice doc:name="Choice" doc:id="b6287e58-a4f9-4889-9731-ff72b50add65" >
 			<when expression="#[vars.flightDetails.id[0] != null]">
+				<ee:transform doc:name="Transform Message" doc:id="7b20f8fd-b465-4c37-a3f3-d0d1ee912602">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+	price1: read(vars.flightDetails.price[0].value,'application/json')[0],
+	price2: read(vars.flightDetails.price[0].value,'application/json')[1]
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+				<logger level="INFO" doc:name="Logger" doc:id="2b2b64b9-4900-47a7-aff8-6bcf2fed4343" message="#[payload.price1] #[payload.price2]" />
 				<flow-ref doc:name="call getBookingCount" doc:id="62f739e8-9cee-4aea-98c9-02e717790fd4" name="getBookingCount"/>
 				<flow-ref doc:name="call setBookingID" doc:id="6fba60a0-5d14-43e8-9ec2-e6a3048cf475" name="setBookingID"/>
 				<flow-ref doc:name="set setPNR" doc:id="1a87a20f-d739-4317-8916-0db0918ac77f" name="setPNR"/>
@@ -223,18 +235,6 @@ output application/json
 			<ee:message>
 				<ee:set-payload><![CDATA[%dw 2.0
 output application/json
-fun isCouponAppiled(couponName: String) = do {
-	var couponStatus = 
-	if (couponName contains('500OFF'))
-		true
-	else
-	if (couponName contains('100OFF'))
-		true
-	else
-		false
-	---
-	couponStatus 
-}
 
 fun calculateDiscount(price: Number, couponName: String) = do {
 	var discount = 
@@ -255,20 +255,23 @@ fun calculateDiscount(price: Number, couponName: String) = do {
 	discount
 }
 
-fun checkBookingType(bookingType: String, price: Number) = do {
-	var typeprice = 
-	if (bookingType contains('FLEXI'))
-		1000
+fun checkPrice(bookingType: String) = do {
+	var amount = 
+	if (bookingType contains('SAVER'))
+		payload.price1
 	else
-		0
+		if (bookingType contains('FLEXI'))
+			payload.price2
+		else
+			payload.price1
 	---
-	typeprice
+	amount
 }
 ---
 {
 	name: vars.flightDetails.name[0],
 	flightID: vars.flightDetails.id[0] as Number,
-	flightNumber: vars.flightDetails.flightnumber[0] as Number,
+	flightNumber: vars.flightDetails.flightnumber[0] as String,
 	startDate: vars.flightDetails.startdate[0] as String,
 	startTime: vars.flightDetails.starttime[0] as String,
 	endDate: vars.flightDetails.enddate[0] as String,
@@ -285,14 +288,14 @@ fun checkBookingType(bookingType: String, price: Number) = do {
 	contactDetails: vars.inputPayload.contactDetails,
 	totalSeats: vars.flightDetails.availableseats[0] - vars.inputPayload.noOfPassengers,
 	couponName: vars.inputPayload.couponName,
-	couponState: isCouponAppiled(vars.inputPayload.couponName as String),
+	couponState: vars.inputPayload.couponApplied,
 	bookingID: "IND0000" ++ (vars.bookingID as String),
 	PNR: vars.inputPayload.origin[0] ++ vars.inputPayload.destination[0] ++ (vars.PNR as String),
 	totalSeats: vars.flightDetails.availableseats[0] - (vars.inputPayload.noOfPassengers as Number),
-	price: {"baseFare": (((read(vars.flightDetails.price[0].value,'application/json')).baseFare * vars.inputPayload.noOfPassengers) as String),
-			"taxes": (((read(vars.flightDetails.price[0].value,'application/json')).taxes * vars.inputPayload.noOfPassengers) as String),
-			"total": ((read(vars.flightDetails.price[0].value,'application/json')).total * vars.inputPayload.noOfPassengers - calculateDiscount(((read(vars.flightDetails.price[0].value,'application/json')).total as Number), vars.inputPayload.couponName) 
-			+ checkBookingType(vars.inputPayload.bookingType as String, (read(vars.flightDetails.price[0].value,'application/json')).total as Number) as String)
+	price: {
+	"baseFare": ((checkPrice(vars.inputPayload.bookingType).baseFare * vars.inputPayload.noOfPassengers) as String),
+	"taxes": ((checkPrice(vars.inputPayload.bookingType).taxes * vars.inputPayload.noOfPassengers) as String),
+	"total": ((checkPrice(vars.inputPayload.bookingType).total * vars.inputPayload.noOfPassengers) - calculateDiscount((checkPrice(vars.inputPayload.bookingType).total as Number), vars.inputPayload.couponName)) as String
 	}
 }]]></ee:set-payload>
 			</ee:message>

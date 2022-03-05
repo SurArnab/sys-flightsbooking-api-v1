@@ -1,8 +1,0 @@
-http:
-  port: "8081"
-  
-flights:
-  url: "jdbc:postgresql://castor.db.elephantsql.com:5432/mvnbvgur"
-  driverClass: "org.postgresql.Driver"
-  user: "mvnbvgur"
-  password: "7KslA3s6CnkgPBU12grN73xAdG9K2Qw1"

@@ -20,33 +20,7 @@ types:
       addFlight: !include examples/flightExample.raml
       cancelFlight: !include examples/flightCancellationExample.raml
   get:
-    queryParameters:
-      startDate?:
-        displayName: Date of Departure
-        type: string
-        required: false
-        example:
-          23-02-2022
-      origin:
-        displayName: Origin
-        type: string
-        required: true
-        example:
-          CCU
-      destination:
-        displayName: Destination
-        type: string
-        required: true
-        example:
-          BEN
-      noOfPassengers?:
-        displayName: No. of Passengers
-        type: integer
-        minimum: 1
-        default: 1
-        required: false
-        example:
-          2
+
   post:
   
   put:
@@ -57,7 +31,7 @@ types:
         getSpecificFlight: !include examples/flightExample.raml
         bookFlight: !include examples/flightBookingExample.raml
         flightBookingResponse: !include examples/flightBookingResponseExample.raml
-    
+
     get:
-              
+
     post:

@@ -1,4 +1,0 @@
-%dw 2.0
-
-type auto_beecf023_b749_4e69_89ce_d2e2b9ab7449_Input_Variables_counter = Number | Null
-

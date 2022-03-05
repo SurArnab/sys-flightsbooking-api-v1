@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>sys-flightsbooking-api-v1</artifactId>
+	<artifactId>sys-flightsbooking-api-v2</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
@@ -36,21 +36,23 @@
 							<artifactId>postgresql</artifactId>
 						</sharedLibrary>
 					</sharedLibraries>
+					<classifier>mule-application</classifier>
 					<cloudHubDeployment>
-					    <uri>https://anypoint.mulesoft.com</uri>
-					    <muleVersion>${mule.version}</muleVersion>
-					    <!-- Deploy User Parameter -->
-					    <username>${anypoint.username}</username>
-					    <password>${anypoint.password}</password>
-					    <!-- Environment Parameter -->
-					    <environment>${cloudhub.environment}</environment>
-					    <applicationName>${cloudhub.app}</applicationName>
-					    <businessGroup>${cloudhub.bg}</businessGroup>
-					    <workerType>${cloudhub.worker}</workerType>
-					    <objectStoreV2>true</objectStoreV2>
-					    <properties>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${mule.version}</muleVersion>
+						<!-- Deploy User Parameter -->
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<!-- Environment Parameter -->
+						<environment>${cloudhub.environment}</environment>
+						<applicationName>${cloudhub.app}</applicationName>
+						<businessGroup>${cloudhub.bg}</businessGroup>
+						<workerType>${cloudhub.worker}</workerType>
+						<objectStoreV2>true</objectStoreV2>
+						<properties>
 							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
 							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+							<env>${env}</env>
 						</properties>
 					</cloudHubDeployment>
 				</configuration>
@@ -72,15 +74,15 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-apikit-module</artifactId>
-			<version>1.5.8</version>
+			<groupId>com.mulesoft.modules</groupId>
+			<artifactId>mule-secure-configuration-property-module</artifactId>
+			<version>1.2.3</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-db-connector</artifactId>
-			<version>1.11.0</version>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-apikit-module</artifactId>
+			<version>1.5.8</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
@@ -89,16 +91,9 @@
 			<version>42.3.2</version>
 		</dependency>
 		<dependency>
-			<groupId>2f608537-a5c2-4e14-8930-49c11e37a87c</groupId>
-			<artifactId>apispec-bookmyholiday</artifactId>
-			<version>1.0.16</version>
-			<classifier>raml</classifier>
-			<type>zip</type>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.modules</groupId>
-			<artifactId>mule-secure-configuration-property-module</artifactId>
-			<version>1.2.3</version>
+			<groupId>org.mule.connectors</groupId>
+			<artifactId>mule-db-connector</artifactId>
+			<version>1.10.4</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>

@@ -17,14 +17,9 @@ type auto_ab86d249_273b_4a05_87c2_cf51c940bc2a_Output_Payload = {
     lname: String, 
     _?: Any
   }, 
-  PNR: Number, 
+  PNR: String, 
   noOfStops: Number, 
-  price: {
-    baseFare: Number, 
-    total: Number, 
-    taxes: Number, 
-    _?: Any
-  }, 
+  price: Array<{    bookingtype: String,     baseFare: Number,     total: Number,     taxes: Number,     _?: Any  }>, 
   startTime: String, 
   endTime: String, 
   startDate: String, 

@@ -7,11 +7,11 @@ type auto_25690410_4ea1_434c_bdb9_c75919a234fe_Output_Payload = Array<{  baggage
     _?: Any
   }, 
   description: String, 
-  reschedulePolicy: Array<{    charges: Number,     timeFrame: String,     _?: Any  }>, 
+  reschedulePolicy: Array<{    charges: String,     timeFrame: String,     _?: Any  }>, 
   layOver: Number, 
   flightNumber: Number, 
   noOfStops: Number, 
-  price: Array<{    baseFare: Number,     total: Number,     bookingType: String,     taxes: Number,     _?: Any  }>, 
+  price: Array<{    bookingtype: String,     baseFare: Number,     total: Number,     taxes: Number,     _?: Any  }>, 
   stopLocation: {
     arrival: String, 
     location: String, 
@@ -24,7 +24,7 @@ type auto_25690410_4ea1_434c_bdb9_c75919a234fe_Output_Payload = Array<{  baggage
   ID: Number, 
   endTime: String, 
   startDate: String, 
-  cancellationPolicy: Array<{    charges: Number,     timeFrame: String,     _?: Any  }>, 
+  cancellationPolicy: Array<{    charges: String,     timeFrame: String,     _?: Any  }>, 
   _?: Any
 }>
 

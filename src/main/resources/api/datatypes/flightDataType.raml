@@ -23,7 +23,7 @@ properties:
           baseFare: number
           taxes: number
           total: number
-          bookingType: string
+          bookingtype: string
   currency: string
   baggage:
     type: object
@@ -65,7 +65,7 @@ properties:
       type: object
       properties:
           timeFrame: string
-          charges: number
+          charges: string
   reschedulePolicy:
     type: array
     required: true
@@ -73,4 +73,4 @@ properties:
       type: object
       properties:
           timeFrame: string
-          charges: number
+          charges: string

@@ -1,6 +1,6 @@
 %dw 2.0
 
-type auto_ab86d249_273b_4a05_87c2_cf51c940bc2a_Output_Variables_counter = java_lang_Object | Null
+type auto_38d1e161_0c1a_4186_99a7_06be5da53f3c_Output_Variables_bookingDetails = Array<{ _?: java_lang_Object }>
 type java_lang_Object = {|  |} {"typeAlias": "Object",
 "class": "java.lang.Object",
 "typeId": "java.lang.Object"}

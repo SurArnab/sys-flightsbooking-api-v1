@@ -15,7 +15,6 @@ type auto_ab86d249_273b_4a05_87c2_cf51c940bc2a_Input_Payload = {
     _?: Any
   }, 
   bookingType: String, 
-  startTime: String, 
   startDate: String, 
   insuranceRequired: Boolean, 
   username: String, 

@@ -1,4 +1,0 @@
-%dw 2.0
-
-type auto_c8cbd68b_7894_4d1b_9890_cc350b3e0f90_Output_Variables_selectquerypayload = Array<{|  availableseats: Number,   layover: Number,   noofstops: Number,   price: Any,   enddate?: String,   endtime: String|}>
-

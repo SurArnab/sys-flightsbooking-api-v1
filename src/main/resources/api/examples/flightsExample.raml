@@ -15,16 +15,16 @@ flightsExample:
     noOfStops: 1
     availableSeats: 10
     price:
-        -
-           baseFare: 4000
-           taxes: 1000
-           total: 5000
-           bookingType: SAVER
-        -
-           baseFare: 5000
-           taxes: 1000
-           total: 6000
-           bookingType: FLEXI PLUS
+    -
+      baseFare: 4000
+      taxes: 1000
+      total: 5000
+      bookingtype: SAVER
+    -
+      baseFare: 4000
+      taxes: 1000
+      total: 6000
+      bookingtype: FLEXI
     currency: INR
     baggage:
         total: 22
@@ -52,23 +52,23 @@ flightsExample:
     cancellationPolicy:
       -
         timeFrame: 0-2 Hours
-        charges : 5000
+        charges : "5000"
       -
         timeFrame: 2-72 Hours
-        charges : 3000
+        charges : "3000"
       -
         timeFrame: more than 72 Hours
-        charges : 300
+        charges : "300"
     reschedulePolicy:
       -
         timeFrame: 0-2 Hours
-        charges : 4000
+        charges : "4000"
       -
         timeFrame: 2-72 Hours
-        charges : 2000
+        charges : "2000"
       -
         timeFrame: more than 72 Hours
-        charges : 200
+        charges : "200"
 
   -
     ID: 2
@@ -84,16 +84,16 @@ flightsExample:
     noOfStops: 0
     availableSeats: 25
     price:
-        -
-           baseFare: 4500
-           taxes: 1000
-           total: 5500
-           bookingType: SAVER
-        -
-           baseFare: 5600
-           taxes: 1000
-           total: 6600
-           bookingType: FLEXI PLUS
+    -
+      baseFare: 4500
+      taxes: 1000
+      total: 5500
+      bookingtype: SAVER
+    -
+      baseFare: 6000
+      taxes: 1000
+      total: 7000
+      bookingtype: FLEXI
     currency: INR
     baggage:
         total: 22
@@ -121,20 +121,20 @@ flightsExample:
     cancellationPolicy:
       -
         timeFrame: 0-2 Hours
-        charges : 5000
+        charges : "5000"
       -
         timeFrame: 2-72 Hours
-        charges : 3000
+        charges : "3000"
       -
         timeFrame: more than 72 Hours
-        charges : 300
+        charges : "300"
     reschedulePolicy:
       -
         timeFrame: 0-2 Hours
-        charges : 4000
+        charges : "4000"
       -
         timeFrame: 2-72 Hours
-        charges : 2000
+        charges : "2000"
       -
         timeFrame: more than 72 Hours
-        charges : 200
+        charges : "200"

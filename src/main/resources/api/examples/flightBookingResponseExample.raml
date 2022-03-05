@@ -1,17 +1,23 @@
 #%RAML 1.0 NamedExample
 
 flightBookingResponse:
-  bookingID: IND0001
-  PNR: 12345678
+  bookingID: IND00001
+  PNR: CB1001
   bookingType: Saver
   nameOfPassenger:
     fname: Max
     lname: Mule
   price:
+    -
       baseFare: 4000
       taxes: 1000
       total: 5000
-      bookingType: SAVER
+      bookingtype: SAVER
+    -
+      baseFare: 4000
+      taxes: 1000
+      total: 6000
+      bookingtype: FLEXI
   contactDetails: 1234567890
   flightNumber: 6E-227
   startDate: 23-02-2022

@@ -3,7 +3,7 @@
 type: object
 properties:
   bookingID: string
-  PNR: integer
+  PNR: string
   nameOfPassenger:
     type: object
     required: true
@@ -11,13 +11,15 @@ properties:
       fname: string
       lname: string
   price:
-    type: object
+    type: array
     required: true
-    properties:
-      baseFare: number
-      taxes: number
-      total: number
-      bookingType: string
+    items:
+      type: object
+      properties:
+          baseFare: number
+          taxes: number
+          total: number
+          bookingtype: string
   contactDetails: number
   flightNumber: number
   startDate: string

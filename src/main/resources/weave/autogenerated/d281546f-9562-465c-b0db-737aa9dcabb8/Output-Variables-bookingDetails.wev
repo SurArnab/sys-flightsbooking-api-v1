@@ -1,4 +1,0 @@
-%dw 2.0
-
-type auto_d281546f_9562_465c_b0db_737aa9dcabb8_Output_Variables_bookingDetails = Array<{|  serviceid: Number,   username: String,   fname: String,   lname?: String,   contactnumber: Number,   servicename: String,   bookingid: String,   pnr: String,   servicenumber: String,   startdate?: String,   enddate?: String,   starttime?: String,   endtime?: String,   origin?: String,   destination?: String,   noofpassengers: Number,   couponapplied?: Boolean,   couponname?: String,   price: String,   hotelType?: String,   noOfDays?: Number,   noOfRooms?: Number,   roomType?: String,   bedSize?: String,   insurance: String|}>
-

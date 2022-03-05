@@ -22,11 +22,11 @@ type auto_dade3440_7e01_4247_b211_464b128cb899_Output_Payload = {
     _?: Any
   }, 
   description: String, 
-  reschedulePolicy: Array<{    charges: Number,     timeFrame: String,     _?: Any  }>, 
+  reschedulePolicy: Array<{    charges: String,     timeFrame: String,     _?: Any  }>, 
   layOver: Number, 
   flightNumber: Number, 
   noOfStops: Number, 
-  price: Array<{    baseFare: Number,     total: Number,     bookingType: String,     taxes: Number,     _?: Any  }>, 
+  price: Array<{    bookingtype: String,     baseFare: Number,     total: Number,     taxes: Number,     _?: Any  }>, 
   stopLocation: {
     arrival: String, 
     location: String, 
@@ -39,7 +39,7 @@ type auto_dade3440_7e01_4247_b211_464b128cb899_Output_Payload = {
   ID: Number, 
   endTime: String, 
   startDate: String, 
-  cancellationPolicy: Array<{    charges: Number,     timeFrame: String,     _?: Any  }>, 
+  cancellationPolicy: Array<{    charges: String,     timeFrame: String,     _?: Any  }>, 
   _?: Any
 }
 
